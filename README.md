@@ -11,7 +11,7 @@ Download the model from the following link and place it with the code:
 
 **Run the Flask application**:
 
-    ```sh
+    ```
     python run.py
     ```
 
