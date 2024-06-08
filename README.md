@@ -18,7 +18,7 @@ python run.py
 After running the above command, you should see the following output indicating that the server is running:
 
 ```sh
-* Running on http://{YOUR LOCALHOST}:3000/
+Running on http://{YOUR LOCALHOST}:3000/
 ```
 
 ## Using the API
