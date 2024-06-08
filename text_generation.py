@@ -6,7 +6,11 @@ def load_model(model, filename):
     model.load_state_dict(torch.load(filename))
     model.eval()
 
-def generate_emotional_text(input_text,bert_model,tokenizer):
+def generate_emotional_text(input_text):
+    bert_model = BERT_Senti('distilbert-base-uncased')
+    load_model(bert_model, f"BERT_10trained_model.pt") 
+    tokenizer = BlenderbotTokenizer.from_pretrained('facebook/blenderbot-400M-distill')
+    model = BlenderbotForConditionalGeneration.from_pretrained('facebook/blenderbot-400M-distill')
     inputs = bert_model.tokenizer(input_text, padding=True, truncation=True,max_length=512, return_tensors="pt")
     outputs = bert_model(**inputs)
     sentiment =  torch.argmax(outputs, dim=1).item()
@@ -26,9 +30,5 @@ def generate_emotional_text(input_text,bert_model,tokenizer):
     return reply_text
 
 if __name__ == "__main__":
-    bert_model = BERT_Senti('distilbert-base-uncased')
-    load_model(bert_model, f"BERT_10trained_model.pt") 
-    tokenizer = BlenderbotTokenizer.from_pretrained('facebook/blenderbot-400M-distill')
-    model = BlenderbotForConditionalGeneration.from_pretrained('facebook/blenderbot-400M-distill')
-    input_text = "Today's weather is not so well"
-    print(generate_emotional_text(input_text,bert_model,tokenizer))
+    input_text = "I was sad that my mom abandon me"
+    print(generate_emotional_text(input_text))
