@@ -11,15 +11,15 @@ Download the model from the following link and place it with the code:
 
 **Run the Flask application**:
 
-    ```
-    python run.py
-    ```
+```sh
+python run.py
+```
 
-    After running the above command, you should see the following output indicating that the server is running:
+After running the above command, you should see the following output indicating that the server is running:
 
-    ```
-    * Running on http://{YOUR LOCALHOST}:3000/
-    ```
+```sh
+* Running on http://{YOUR LOCALHOST}:3000/
+```
 
 ## Using the API
 
